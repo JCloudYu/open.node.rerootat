@@ -65,6 +65,6 @@
 			resolved_path = path.resolve(root_dir, id.substring(2));
 		}
 		
-		return RUNTIME_DATA.proto_require.call(this, id);
+		return RUNTIME_DATA.proto_require.call(this, resolved_path||id);
 	};
 })();

@@ -1,6 +1,6 @@
 {
 	"name": "rerootat",
-	"version": "1.5.1",
+	"version": "1.0.0",
 	"description": "A tiny module that helps developers to limit require path to specific directory",
 	"main": "rerootat.js",
 	"scripts": {
