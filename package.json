@@ -1,6 +1,6 @@
 {
 	"name": "rootat",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "A tiny module that helps developers to provide require from specific directory",
 	"main": "rootat.js",
 	"scripts": {

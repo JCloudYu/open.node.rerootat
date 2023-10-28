@@ -61,7 +61,7 @@
 		const root_dir = RUNTIME_DATA.search_root;
 		
 		let resolved_path = null;
-		if ( id[0] === "@" ) {
+		if ( id.substring(0,2) === "@/" ) {
 			resolved_path = path.resolve(root_dir, id.substring(2));
 		}
 		
