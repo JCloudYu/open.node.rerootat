@@ -1,8 +1,8 @@
 {
-	"name": "rerootat",
+	"name": "rootat",
 	"version": "1.0.0",
-	"description": "A tiny module that helps developers to limit require path to specific directory",
-	"main": "rerootat.js",
+	"description": "A tiny module that helps developers to provide require from specific directory",
+	"main": "rootat.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},

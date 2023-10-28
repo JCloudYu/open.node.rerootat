@@ -1,4 +1,4 @@
-declare class reroot {
+declare class rootat {
 	/** Where the path '/' starts from when user requires a module using absolute path. **/
 	static search_root:string;
 
@@ -6,4 +6,4 @@ declare class reroot {
 	static readonly project_root:string;
 }
 
-export = reroot;
+export = rootat;
