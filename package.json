@@ -1,0 +1,25 @@
+{
+	"name": "rerootat",
+	"version": "1.5.1",
+	"description": "A tiny module that helps developers to limit require path to specific directory",
+	"main": "rerootat.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JCloudYu/rerootat.git"
+	},
+	"keywords": [
+		"Require"
+	],
+	"author": "JCloudYu",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/JCloudYu/rerootat/issues"
+	},
+	"homepage": "https://github.com/JCloudYu/rerootat#readme",
+	"devDependencies": {
+		"@types/node": "^16.4.13"
+	}
+}
