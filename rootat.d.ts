@@ -4,6 +4,10 @@ declare class rootat {
 
 	/** The root of current project. **/
 	static readonly project_root:string;
+
+	static map(identifier:string, path:string):string;
+
+	static unmap(identifier:string):string;
 }
 
 export = rootat;

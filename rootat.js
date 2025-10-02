@@ -11,7 +11,8 @@
 		proto_require: module.constructor.prototype.require,
 		proj_root: require.main?require.main.path:process.cwd(),
 		user_root: '',
-		search_root: ''
+		search_root: '',
+		map: {}
 	};
 	
 	// Look for the directory that contains node_modules and package.json
@@ -49,6 +50,26 @@
 		get: ()=>RUNTIME_DATA.proj_root,
 		configurable:false, enumerable:true
 	});
+	Object.defineProperty(module.exports, 'map', {
+		value: (identifier, path)=>{
+			if ( identifier === '@' ) {
+				throw new RangeError('Identifier "@" is reserved for project root!');
+			}
+			
+			if ( identifier.indexOf('/') >= 0 ) {
+				throw new RangeError('Identifier cannot contain "/"!');
+			}
+
+			RUNTIME_DATA.map[identifier] = path;
+		},
+		configurable:false, enumerable:true
+	});
+	Object.defineProperty(module.exports, 'unmap', {
+		value: (identifier)=>{
+			delete RUNTIME_DATA.map[identifier];
+		},
+		configurable:false, enumerable:true
+	});
 	
 
 
@@ -56,9 +77,19 @@
 		const root_dir = RUNTIME_DATA.search_root;
 		
 		let resolved_path = null;
-		if ( id.substring(0,2) === "@/" ) {
-			resolved_path = path.resolve(root_dir, id.substring(2));
+		let dir_divider = id.indexOf('/');
+		let identifier = id.substring(0, dir_divider);
+
+		
+		if ( identifier === '@' ) {
+			resolved_path = path.resolve(root_dir, id.substring(dir_divider + 1));
 		}
+		else 
+		if ( RUNTIME_DATA.map[identifier] ) {
+			resolved_path = path.resolve(root_dir, RUNTIME_DATA.map[identifier], id.substring(dir_divider + 1));
+		}
+
+
 		
 		return RUNTIME_DATA.proto_require.call(this, resolved_path||id);
 	};
